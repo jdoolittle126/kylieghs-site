@@ -113,9 +113,14 @@
                     contain: true,
                     imagesLoaded: true,
                     lazyLoad: true,
+                    dragThreshold: 35,
+                    selectedAttraction: 0.05,
+                    friction: 0.35
                 });
 
                 flick.flickity('select', {{config.daysSince}}, false, true);
+
+                $(".flickity-page-dots").addClass(['flex', 'pl-2', 'pr-2', 'justify-center']);
             </script>
 
         </div>

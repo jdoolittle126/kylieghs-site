@@ -71,8 +71,6 @@
         bottom: 0px;
     }
     .flickity-fullscreen .flickity-page-dots .dot {
-        width: 3%;
-        min-width: 5px;
         height: 15px;
         opacity: 1;
         background: transparent;
