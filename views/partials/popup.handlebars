@@ -3,7 +3,7 @@
     <div class="fixed inset-0 bg-slate-900 bg-opacity-20 z-50 transition-opacity" x-show="infoOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-out duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" aria-hidden="true" style="display: none;"></div>
     <!-- Modal dialog -->
     <div id="search-modal" class="fixed inset-0 z-50 overflow-hidden flex items-start top-10 md:top-28 mb-4 justify-center px-4 sm:px-6" role="dialog" aria-modal="true" x-show="infoOpen" x-transition:enter="transition ease-in-out duration-200" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in-out duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" style="display: none;">
-        <div class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg dark:bg-slate-800" @click.outside="closeInfo" @keydown.escape.window="closeInfo">
+        <div class="overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg bg-slate-800" @click.outside="closeInfo" @keydown.escape.window="closeInfo">
 
             <div class="py-4 px-2 space-y-4">
                 <div class="text-md font-medium text-slate-300 px-2 pb-2 mb-2 border-b mx-2 border-slate-600 flex justify-between">
@@ -12,10 +12,10 @@
                 </div>
                 <div>
                     <!-- Local Time -->
-                    <div class="text-sm font-medium text-slate-500 px-2 mb-2 dark:text-slate-400">Time</div>
+                    <div class="text-sm font-medium px-2 mb-2 text-slate-400">Time</div>
                     <ul x-data="{time: new Date(),init() {setInterval(() => {this.time = new Date();}, 1000);}}">
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
 
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-clock-o text-slate-500 shrink-0 mr-3"></i>
@@ -25,7 +25,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-clock-o text-slate-500 shrink-0 mr-3"></i>
                                     Rhode Island Date and Time
@@ -39,10 +39,10 @@
 
 
                 <div>
-                    <div class="text-sm font-medium text-slate-500 px-2 mb-2 dark:text-slate-400">Dates</div>
+                    <div class="text-sm font-medium px-2 mb-2 text-slate-400">Dates</div>
                     <ul>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-calendar-o text-slate-500 shrink-0 mr-3"></i>
                                     Days Since You Left
@@ -51,7 +51,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-calendar-o text-slate-500 shrink-0 mr-3"></i>
                                     Days Until You Come Home
@@ -63,10 +63,10 @@
                 </div>
 
                 <div>
-                    <div class="text-sm font-medium text-slate-500 px-2 mb-2 dark:text-slate-400">Distance Between Us</div>
+                    <div class="text-sm font-medium px-2 mb-2 text-slate-400">Distance Between Us</div>
                     <ul>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-map-o text-slate-500 shrink-0 mr-3"></i>
                                     Distance In Miles 🚗
@@ -75,7 +75,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-map-o text-slate-500 shrink-0 mr-3"></i>
                                     Distance In Goldfish 🐟
@@ -84,7 +84,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-map-o text-slate-500 shrink-0 mr-3"></i>
                                     Distance In Baguettes 🥖
@@ -93,7 +93,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-map-o text-slate-500 shrink-0 mr-3"></i>
                                     Distance In Jonathan Cartwheels 🤸‍♂️
@@ -102,7 +102,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-map-o text-slate-500 shrink-0 mr-3"></i>
                                     Distance In Kyleigh Cartwheels 🤸‍♀️
@@ -114,10 +114,10 @@
                 </div>
 
                 <div>
-                    <div class="text-sm font-medium text-slate-500 px-2 mb-2 dark:text-slate-400">Bean Statistics</div>
+                    <div class="text-sm font-medium px-2 mb-2 text-slate-400">Bean Statistics</div>
                     <ul>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-smile-o text-slate-500 shrink-0 mr-3"></i>
                                     Times I've Missed You
@@ -126,7 +126,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-smile-o text-slate-500 shrink-0 mr-3"></i>
                                     The Amount I Love You
@@ -138,10 +138,10 @@
                 </div>
 
                 <div>
-                    <div class="text-sm font-medium text-slate-500 px-2 mb-2 dark:text-slate-400">Misc.</div>
+                    <div class="text-sm font-medium px-2 mb-2 text-slate-400">Misc.</div>
                     <ul>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-compass text-slate-500 shrink-0 mr-3"></i>
                                     Corn Dog
@@ -150,7 +150,7 @@
                             </p>
                         </li>
                         <li>
-                            <p class="flex items-center px-2 py-1 leading-6 text-sm text-slate-800 hover:bg-slate-100 rounded dark:text-slate-200 dark:hover:bg-slate-700 justify-between">
+                            <p class="flex items-center px-2 py-1 leading-6 text-sm rounded text-slate-200 hover:bg-slate-700 justify-between">
                                 <span class="font-medium mr-2">
                                     <i class="fa fa-compass text-slate-500 shrink-0 mr-3"></i>
                                     If You Miss a Good Garden
