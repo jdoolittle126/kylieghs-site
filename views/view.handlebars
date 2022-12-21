@@ -2,7 +2,7 @@
 <div class="flex flex-col min-h-screen overflow-hidden" id="wrapper" style="background-repeat: repeat;background-image: url(/images/bg.jpg); background-position-x: 0px">
 
     <!-- Page content -->
-    <main class="grow">
+    <main class="grow overflow-y-hidden">
 
         <section class="relative" style="z-index: 1">
 
@@ -51,7 +51,7 @@
                                         <div class="text-slate-400 space-y-6">
 
                                             <div class="">
-                                                <div class="flickity flickity-fullscreen absolute container mt-5 left-0 right-0"
+                                                <div class="flickity flickity-fullscreen absolute container mt-0 md:mt-5 left-0 right-0"
                                                      style="height: 75vh">
                                                     {{#each affirmations }}
                                                         {{>affirmation this}}
