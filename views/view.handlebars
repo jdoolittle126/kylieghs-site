@@ -1,8 +1,8 @@
 <!-- Page wrapper -->
-<div class="flex flex-col min-h-screen overflow-hidden" id="wrapper" style="background-repeat: repeat;background-image: url(/images/bg.jpg); background-position-x: 0px">
+<div class="flex flex-col absolute inset-0 overflow-hidden" id="wrapper" style="background-repeat: repeat;background-image: url(/images/bg.jpg); background-position-x: 0px">
 
     <!-- Page content -->
-    <main class="grow overflow-y-hidden">
+    <main class="grow overflow-hidden">
 
         <section class="relative" style="z-index: 1">
 
@@ -36,23 +36,22 @@
                         </div>
                     </div>
 
-                    <div class="md:grow">
-                        <div class="pt-12 md:pt-14 pb-8 md:pl-6 lg:pl-12">
+                    <div class="grow">
+                        <div class="pt-10 md:pt-14 pb-8 md:pl-6 lg:pl-12">
 
                             <article class="flex xl:space-x-12">
                                 <!-- Main area -->
                                 <div class="min-w-0">
 
                                     <div>
-                                        <header class="mb-6">
-                                            <h1 class="h2 mb-4 text-slate-200" id="intro">Dear Kyliegh,</h1>
-                                            <p class="text-lg text-slate-400"></p>
+                                        <header class="mb-0 md:mb-6">
+                                            <h1 class="h2 text-slate-200" id="intro">Dear Kyliegh,</h1>
                                         </header>
                                         <div class="text-slate-400 space-y-6">
 
                                             <div class="">
-                                                <div class="flickity flickity-fullscreen absolute container mt-0 md:mt-5 left-0 right-0"
-                                                     style="height: 75vh">
+                                                <div class="flickity flickity-fullscreen absolute mt-0 md:mt-5 left-0 right-0"
+                                                     style="height: 75vh;">
                                                     {{#each affirmations }}
                                                         {{>affirmation this}}
                                                     {{/each}}
@@ -70,61 +69,66 @@
             </div>
         </section>
 
-        <div class="absolute bottom-0 h-12 bg-black w-full bg-opacity-50 z-10 flex items-center justify-between m-auto" x-data="infoPopup">
-            <ul class="flex grow flex-wrap items-center justify-around">
-                <li>
-                    <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" @click.prevent="openInfo">
-                        <i class="fa fa-info-circle text-white"></i><p class="hidden pl-2 sm:block">Trip Information</p>
-                    </button>
-                </li>
-                <li>
-                    <p class="flex items-center justify-center px-3 font-light text-slate-200 rounded border border-slate-600 bg-slate-800 shadow-sm">
-                        Love is a fat turtle after all... 🐢</p>
-                </li>
-                <li>
-                    <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" onclick="pausePlay()">
-                        <i class="fa fa-pause text-white" id="animation"></i><p class="hidden pl-2 sm:block">Pause/Play Animation</p>
-                    </button>
-                </li>
-            </ul>
-
-            {{>popup this}}
-
-            <script>
-
-                document.addEventListener('alpine:init', () => {
-                    Alpine.data('infoPopup', () => ({
-                        infoOpen: false,
-                        openInfo() {
-                            this.infoOpen = true;
-                            document.body.classList.add('overflow-hidden');
-                        },
-                        closeInfo() {
-                            this.infoOpen = false;
-                            document.body.classList.remove('overflow-hidden');
-                        },
-                    }))
-                })
-
-                let flick = $('.flickity');
-
-                flick.flickity({
-                    cellAlign: 'left',
-                    contain: true,
-                    imagesLoaded: true,
-                    lazyLoad: true,
-                    dragThreshold: 35,
-                    selectedAttraction: 0.05,
-                    friction: 0.35
-                });
-
-                flick.flickity('select', {{config.daysSince}}, false, true);
-
-                $(".flickity-page-dots").addClass(['flex', 'pl-2', 'pr-2', 'justify-center']);
-            </script>
-
-        </div>
 
     </main>
+
+    <div class="absolute bottom-0 h-12 bg-black w-full bg-opacity-50 z-10 flex items-center justify-between m-auto" x-data="infoPopup">
+        <ul class="flex grow flex-wrap items-center justify-around">
+            <li>
+                <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" @click.prevent="openInfo">
+                    <i class="fa fa-info-circle text-white"></i><p class="hidden pl-2 sm:block">Trip Information</p>
+                </button>
+            </li>
+            <li>
+                <p class="flex items-center justify-center px-3 font-light text-slate-200 rounded border border-slate-600 bg-slate-800 shadow-sm">
+                    Love is a fat turtle after all... 🐢</p>
+            </li>
+            <li>
+                <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" onclick="pausePlay()">
+                    <i class="fa fa-pause text-white" id="animation"></i><p class="hidden pl-2 sm:block">Pause/Play Animation</p>
+                </button>
+            </li>
+        </ul>
+
+        {{>popup this}}
+
+        <script>
+
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('infoPopup', () => ({
+                    infoOpen: false,
+                    openInfo() {
+                        this.infoOpen = true;
+                        document.body.classList.add('overflow-hidden');
+                    },
+                    closeInfo() {
+                        this.infoOpen = false;
+                        document.body.classList.remove('overflow-hidden');
+                    },
+                }))
+            })
+
+            let flick = $('.flickity');
+
+            flick.flickity({
+                cellAlign: 'left',
+                contain: true,
+                imagesLoaded: true,
+                lazyLoad: true,
+                dragThreshold: 35,
+                selectedAttraction: 0.05,
+                friction: 0.35
+            });
+
+            flick.flickity('select', {{config.daysSince}}, false, true);
+
+            $(".flickity-page-dots").addClass(['flex', 'pl-2', 'pr-2', 'justify-center']);
+
+            $(".flickity-fullscreen").css({height: $(window).innerHeight() * 0.75});
+
+        </script>
+
+    </div>
+
 
 </div>

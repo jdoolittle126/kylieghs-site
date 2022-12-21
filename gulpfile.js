@@ -54,9 +54,10 @@ task('nodemon', (callBack) => {
 task('browser-sync', series('nodemon', () => {
     browserSync.init({
         proxy: "http://localhost:3000",
-        files: ['views/**/*', '/public/css/*.css'],
+        files: ['views/**/*', '/public/css/*.css', '/public/js/*.js'],
         port: 5000,
-        notify: true
+        notify: true,
+        tunnel: true
     });
 }));
 

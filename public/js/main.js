@@ -108,15 +108,7 @@ globe.projection.translate([500, 500]).scale(400).rotate([0, -10, 0]);
 
 var canvas = document.getElementById('rotatingGlobe');
 
-if (window.devicePixelRatio === 2) {
-  canvas.width = 2000;
-  canvas.height = 2000;
-  context = canvas.getContext('2d');
-  context.scale(2, 2);
-}
-
 globe.draw(canvas);
-
 
 function autorotate(degPerSec) {
   return function(planet) {
