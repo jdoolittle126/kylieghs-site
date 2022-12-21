@@ -1,0 +1,125 @@
+<!-- Page wrapper -->
+<div class="flex flex-col min-h-screen overflow-hidden" id="wrapper" style="background-repeat: repeat;background-image: url(/images/bg.jpg); background-position-x: 0px">
+
+    <!-- Page content -->
+    <main class="grow">
+
+        <section class="relative" style="z-index: 1">
+
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none" style="z-index: -1;">
+                <img class="max-w-none" src="/images/hero-illustration.svg" width="1972" height="392" aria-hidden="true" />
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+                <!-- Main content -->
+                <div>
+
+                    <!-- Backdrop -->
+                    <div
+                            class="fixed inset-0 z-10 bg-slate-300 bg-opacity-10 transition-opacity"
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition ease-out duration-100"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            aria-hidden="false"
+                            style="z-index: -1"
+                    >
+                        <div class="w-full h-full flex">
+                            <canvas class="m-auto"
+                                    id='rotatingGlobe'
+                                    width="1000px"
+                                    height="1000px"
+                                    style='height: 1000px; width: 1000px;'></canvas>
+                        </div>
+                    </div>
+
+                    <div class="md:grow">
+                        <div class="pt-12 md:pt-14 pb-8 md:pl-6 lg:pl-12">
+
+                            <article class="flex xl:space-x-12">
+                                <!-- Main area -->
+                                <div class="min-w-0">
+
+                                    <div>
+                                        <header class="mb-6">
+                                            <h1 class="h2 text-slate-800 mb-4 dark:text-slate-200" id="intro">Dear Kyliegh,</h1>
+                                            <p class="text-lg text-slate-600 dark:text-slate-400"></p>
+                                        </header>
+                                        <div class="text-slate-600 dark:text-slate-400 space-y-6">
+
+                                            <div class="">
+                                                <div class="flickity flickity-fullscreen absolute container mt-5 left-0 right-0"
+                                                     style="height: 75vh">
+                                                    {{#each affirmations }}
+                                                        {{>affirmation this}}
+                                                    {{/each}}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="absolute bottom-0 h-12 bg-black w-full bg-opacity-50 z-10 flex items-center justify-between m-auto" x-data="infoPopup">
+            <ul class="flex grow flex-wrap items-center justify-around">
+                <li>
+                    <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" @click.prevent="openInfo">
+                        <i class="fa fa-info-circle text-white"></i><p class="hidden pl-2 sm:block">Trip Information</p>
+                    </button>
+                </li>
+                <li>
+                    <p class="flex items-center justify-center px-3 font-light text-slate-200 rounded border border-slate-600 bg-slate-800 shadow-sm">
+                        Love is a fat turtle after all... 🐢</p>
+                </li>
+                <li>
+                    <button class="btn-sm inline-flex items-center text-slate-100 bg-blue-600 hover:bg-blue-700 shadow-sm" onclick="pausePlay()">
+                        <i class="fa fa-pause text-white" id="animation"></i><p class="hidden pl-2 sm:block">Pause/Play Animation</p>
+                    </button>
+                </li>
+            </ul>
+
+            {{>popup this}}
+
+            <script>
+
+                document.addEventListener('alpine:init', () => {
+                    Alpine.data('infoPopup', () => ({
+                        infoOpen: false,
+                        openInfo() {
+                            this.infoOpen = true;
+                            document.body.classList.add('overflow-hidden');
+                        },
+                        closeInfo() {
+                            this.infoOpen = false;
+                            document.body.classList.remove('overflow-hidden');
+                        },
+                    }))
+                })
+
+                let flick = $('.flickity');
+
+                flick.flickity({
+                    cellAlign: 'left',
+                    contain: true,
+                    imagesLoaded: true,
+                    lazyLoad: true,
+                });
+
+                flick.flickity('select', {{config.daysSince}}, false, true);
+            </script>
+
+        </div>
+
+    </main>
+
+</div>

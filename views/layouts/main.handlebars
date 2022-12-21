@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="scroll-smooth dark">
+
+<head>
+    <title x-data="{title: 0, init() {setInterval(() => {this.title += 1; if (this.title > 4) {this.title = 0}}, 2000);}}"
+           x-text="['I LOVE YOU', 'SO VERY MUCH', 'YOU AMAZING BEAN!', '❤❤❤❤', ':)'][title]"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/style.css" rel="stylesheet">
+    <script>
+        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
+            document.querySelector('html').classList.remove('dark');
+        } else {
+            document.querySelector('html').classList.add('dark');
+        }
+    </script>
+    <script src="/js/vendors/jquery-3.6.2.min.js"></script>
+    <script src="/js/vendors/flickity.pkgd.min.js"></script>
+</head>
+
+<body class="font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200">
+
+{{{body}}}
+
+<script src="/js/vendors/alpinejs.min.js" defer></script>
+<script src='/js/vendors/d3.v3.min.js'></script>
+<script src='/js/vendors/topojson.v1.min.js'></script>
+<script src="/js/vendors/planetaryjs.min.js"></script>
+<script src="/js/vendors/confetti.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

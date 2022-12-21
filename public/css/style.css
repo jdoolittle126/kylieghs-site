@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=PT+Mono&display=fallback');
+@import 'additional-styles/custom-fonts.css';
+
+@import '../../node_modules/tailwindcss/base.css';
+@import '../../node_modules/tailwindcss/components.css';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/theme.css';
+
+@import 'vendors/flickity.min.css';
+@import 'vendors/font-awesome.min.css';
+
+@import '../../node_modules/tailwindcss/utilities.css';
+
+/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
+@layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+    .flickity-fullscreen {
+        text-align: center;
+        height: 75vh;
+    }
+    .flickity-fullscreen p {
+        margin: 0.75em auto 0.75em auto;
+        max-width: 50em;
+    }
+    .flickity-fullscreen h1, .flickity-fullscreen h2, .flickity-fullscreen h3, .flickity-fullscreen h4, .flickity-fullscreen h5 {
+        margin: 0 0 0 0;
+    }
+    .flickity-fullscreen .flickity-viewport {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .gallery-cell {
+        height: 100%;
+    }
+    .flickity-fullscreen .gallery-cell {
+        width: 100%;
+        height: 100%;
+        padding: 45px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-content: stretch;
+        align-items: center;
+    }
+    .flickity-fullscreen .gallery-cell > div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    .flickity-fullscreen .gallery-cell > div img {
+        flex: 0 1 auto;
+        max-width: 48%;
+        max-height: 48%;
+        margin: 1%;
+    }
+    .flickity-fullscreen .flickity-page-dots {
+        bottom: 0px;
+    }
+    .flickity-fullscreen .flickity-page-dots .dot {
+        width: 3%;
+        min-width: 5px;
+        height: 15px;
+        opacity: 1;
+        background: transparent;
+        border-top: 3px solid #fff;
+        opacity: 0.3;
+        border-radius: 0;
+        margin: 0;
+    }
+    .flickity-fullscreen .flickity-page-dots .dot.is-selected {
+        opacity: 1;
+    }
+}
+
+/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
+[x-cloak=""] {
+    display: none;
+}
