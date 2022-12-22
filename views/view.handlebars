@@ -50,7 +50,7 @@
                                         <div class="text-slate-400 space-y-6">
 
                                             <div class="">
-                                                <div class="flickity flickity-fullscreen absolute mt-0 md:mt-5 left-0 right-0"
+                                                <div class="flickity flickity-fullscreen my-auto absolute mt-0 md:mt-5 left-0 right-0"
                                                      style="height: 75vh;">
                                                     {{#each affirmations }}
                                                         {{>affirmation this}}
@@ -124,7 +124,24 @@
 
             $(".flickity-page-dots").addClass(['flex', 'pl-2', 'pr-2', 'justify-center']);
 
-            $(".flickity-fullscreen").css({height: $(window).innerHeight() * 0.75});
+            $(".flickity-fullscreen").css({height: $(window).innerHeight() * 0.85});
+
+            ////////////////////////
+            /// Birthday Confetti!
+            ///////////////////////
+
+            let birthDay = new Date("{{config.birthDay}}");
+            let today = new Date();
+            let header = $("#intro");
+
+            console.log(birthDay)
+
+            if (today.getMonth() === birthDay.getMonth() && today.getDay() === birthDay.getDay()) {
+                startConfetti();
+                header.text("Dear Birthday Girl,");
+            } else {
+                stopConfetti();
+            }
 
         </script>
 

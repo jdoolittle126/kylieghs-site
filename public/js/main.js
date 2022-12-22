@@ -1,20 +1,4 @@
 ////////////////////////
-/// Birthday Confetti!
-///////////////////////
-
-let birthDay = new Date("03/20/2023");
-let today = new Date();
-let header = $("#intro");
-
-
-if (today.getMonth() === birthDay.getMonth() && today.getDay() === birthDay.getDay()) {
-  startConfetti();
-  header.text("Dear Birthday Girl,");
-} else {
-  stopConfetti();
-}
-
-////////////////////////
 /// Planet Stuff!
 ///////////////////////
 

@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const configSchema = new mongoose.Schema({
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    birthDay: Date
 }, {
     strictQuery: false
 });

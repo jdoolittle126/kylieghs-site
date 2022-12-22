@@ -14,6 +14,7 @@ routeView.get(async (req, res) => {
     let config = {
         startDate: baseConfig.startDate,
         endDate: baseConfig.endDate,
+        birthDay: baseConfig.birthDay,
         daysSince: Math.max(Math.floor((new Date() - baseConfig.startDate) / (1000 * 60 * 60 * 24)), 0),
         daysTil: Math.max(Math.floor((baseConfig.endDate - new Date()) / (1000 * 60 * 60 * 24)), 0)
     }
