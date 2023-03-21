@@ -106,6 +106,18 @@
                         document.body.classList.remove('overflow-hidden');
                     },
                 }))
+
+                Alpine.data('debugBirthday', () => ({
+                    isDebug: false,
+                    counter: 0,
+                    debugMode() {
+                        this.counter++;
+                        if(this.counter === 5) {
+                            startBirthdayMode();
+                        }
+                    },
+                }))
+
             })
 
             let flick = $('.flickity');
@@ -132,16 +144,20 @@
 
             let birthDay = new Date("{{config.birthDay}}");
             let today = new Date();
-            let header = $("#intro");
 
-            console.log(birthDay)
-
-            if (today.getMonth() === birthDay.getMonth() && today.getDate() === birthDay.getDate()) {
+            function startBirthdayMode() {
+                let header = $("#intro");
                 startConfetti();
                 header.text("Dear Birthday Girl,");
+            }
+
+            if (today.getMonth() === birthDay.getMonth() && today.getDate() === birthDay.getDate()) {
+                startBirthdayMode();
             } else {
                 stopConfetti();
             }
+
+
 
         </script>
 
